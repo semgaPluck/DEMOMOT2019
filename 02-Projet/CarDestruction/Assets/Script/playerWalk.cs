@@ -2,46 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerWalk : MonoBehaviour
+public class PlayerWalk : MonoBehaviour
 {
-
-    [SerializeField]
-    Rigidbody rbPlayer;
-
     [SerializeField]
     float speed;
 
+    [SerializeField]
+    float rotateSpeed;
+
+    [SerializeField]
+    Rigidbody rbPlayer;
+     
 
     private float _X = 0;
     private float _Z = 0;
+    private float _Y = 0;
 
-    public playerWalk(float X, float Z)
+    public PlayerWalk(float X, float Z, float Y)
     {
         float _X = X;
         float _Z = Z;
+        float _Y = Y;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
     // Update is called once per frame
     void Update()
     {
         _X = Input.GetAxisRaw("Horizontal");
+        _Y = Input.GetAxisRaw("Rotate");
         _Z = Input.GetAxisRaw("Vertical");
 
-        Vector2 velocity = new Vector2(_X,_Z);
+        Vector3 veloc = new Vector3(_Y, 0 , _Z);
 
-        this.walk(velocity);
+        transform.Translate(veloc * speed * Time.deltaTime);
+        
 
-
-    }
-
-    void walk(Vector2 velocity)
-    {
-        rbPlayer.AddForce(velocity, speed)
+        transform.Rotate(0, _X * rotateSpeed, 0);
     }
 }
