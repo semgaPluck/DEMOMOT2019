@@ -14,7 +14,14 @@ public class Wheels : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public int brake;
-    public float coefAccel = 10f;
+    public float coefAccel = 30f;
+    public float maxAngle = 50f;
+    public bool frein;
+
+    void Start()
+    {
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -2, -1);
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,22 +31,30 @@ public class Wheels : MonoBehaviour
         txtSpeed.text = "Speed :" + (int)speed;
 
         //accel
-        if(Input.GetKey(KeyCode.UpArrow))
-        {
-            bl.brakeTorque = 0;
-            br.brakeTorque = 0;
-            bl.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime * 100;
-            br.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime * 100;
-        }
+        bl.brakeTorque = 0;
+        br.brakeTorque = 0;
+        bl.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime;
+        br.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime;
+        fl.brakeTorque = 0;
+        fr.brakeTorque = 0;
+        fl.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime;
+        fr.motorTorque = Input.GetAxis("Vertical") * torque * coefAccel * Time.deltaTime;
 
         //décelération
-        if (!Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Vertical") == 0)
         {
+
             bl.motorTorque = 0;
             br.motorTorque = 0;
             bl.brakeTorque = brake * coefAccel * Time.deltaTime;
             br.brakeTorque = brake * coefAccel * Time.deltaTime;
+            fl.motorTorque = 0;
+            fr.motorTorque = 0;
         }
+
+        //direction
+        fl.steerAngle = Input.GetAxis("Horizontal") * maxAngle;
+        fr.steerAngle = Input.GetAxis("Horizontal") * maxAngle;
 
     }
 }

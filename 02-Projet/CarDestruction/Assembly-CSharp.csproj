@@ -73,6 +73,7 @@
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\SplashScreen\Scripts\SplashScreen.cs" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
+    <None Include="Assets\IceMaterial\Shader\Ice.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
-    bool carSides;
+    
 
     [SerializeField]
     Text TextToEnterInCar;
@@ -24,11 +24,8 @@ public class Car : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        carSides = true;
+        cameraPlayer.SetActive(true);
         cameraCar.SetActive(false);
-
-        ScriptWalk = GetComponent<PlayerWalk>();
-        ScriptWalk.enabled = false;
     }
 
     // Update is called once per frame
@@ -62,6 +59,6 @@ public class Car : MonoBehaviour
         cameraCar.SetActive(true);
         Player.SetActive(false);
 
-        ScriptWalk.enabled = true;
+       
     }
 }
