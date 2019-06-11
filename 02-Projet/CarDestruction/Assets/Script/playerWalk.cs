@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class PlayerWalk : MonoBehaviour
 {
-    [SerializeField]
-    float speed;
+  
+    public float speed;
 
-    [SerializeField]
-    float rotateSpeed;
-
-    [SerializeField]
-    Rigidbody rbPlayer;
-     
+  
+    public float rotateSpeed; 
 
     private float _X = 0;
     private float _Z = 0;
     private float _Y = 0;
-
-    public PlayerWalk(float X, float Z, float Y)
-    {
-        float _X = X;
-        float _Z = Z;
-        float _Y = Y;
-    }
     // Update is called once per frame
     void Update()
     {
