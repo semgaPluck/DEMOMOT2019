@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 public class Wheels : MonoBehaviour
 {
     public WheelCollider fl;
@@ -9,9 +11,10 @@ public class Wheels : MonoBehaviour
     public WheelCollider bl;
     public WheelCollider br;
 
-    public Text txtSpeed;
+    
+    public TextMeshProUGUI txtSpeed;
     public float torque;
-    public float speed;
+    public static float speed;
     public float maxSpeed;
     public int brake;
     public float coefAccel = 30f;
@@ -20,15 +23,19 @@ public class Wheels : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -2, -1);
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -1f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!Car.inCar)
+        {
+            return;
+        }
 
-        speed = GetComponent<Rigidbody>().velocity.magnitude * 3.6f;
-        txtSpeed.text = "Speed :" + (int)speed;
+        speed = GetComponent<Rigidbody>().velocity.magnitude * 1.5f;
+        txtSpeed.text = Convert.ToString((int)speed);
 
         //accel
         bl.brakeTorque = 0;
@@ -50,6 +57,12 @@ public class Wheels : MonoBehaviour
             br.brakeTorque = brake * coefAccel * Time.deltaTime;
             fl.motorTorque = 0;
             fr.motorTorque = 0;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            bl.brakeTorque = Mathf.Infinity;
+            br.brakeTorque = Mathf.Infinity;
         }
 
         //direction

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerWalk : MonoBehaviour
 {
-  
     public float speed;
-
   
-    public float rotateSpeed; 
+    public float rotateSpeed;
 
     private float _X = 0;
     private float _Z = 0;
     private float _Y = 0;
+
     // Update is called once per frame
     void Update()
     {

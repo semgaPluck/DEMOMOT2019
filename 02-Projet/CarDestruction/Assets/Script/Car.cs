@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class Car : MonoBehaviour
 {
@@ -12,30 +14,43 @@ public class Car : MonoBehaviour
 
     [SerializeField]
     GameObject cameraCar;
-    [SerializeField]
-    GameObject cameraPlayer;
-    [SerializeField]
-    GameObject Player;
+    [SerializeField] GameObject cameraPlayer;
+    [SerializeField] GameObject Player;
+    [SerializeField] private TextMeshProUGUI txtScore;
 
-    
     PlayerWalk ScriptWalk;
-    
+
+    public static bool inCar = false;
+    public static int score;
 
     // Start is called before the first frame update
     void Start()
     {
         cameraPlayer.SetActive(true);
         cameraCar.SetActive(false);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("SCORE: " + score);
+
         if (Input.GetKey(KeyCode.Space) && TextToEnterInCar.text == "Press Space")
         {
             TextToEnterInCar.text = "";
             EnterInCar();
         }
+
+        if(Input.GetKey(KeyCode.R))
+        {
+           
+            transform.Translate(0, 3720.38f, 0);
+
+        }
+
+        txtScore.text = Convert.ToString(score);
     }
 
     void OnTriggerEnter(Collider player)
@@ -55,6 +70,8 @@ public class Car : MonoBehaviour
 
     void EnterInCar()
     {
+        inCar = true;
+
         cameraPlayer.SetActive(false);
         cameraCar.SetActive(true);
         Player.SetActive(false);
