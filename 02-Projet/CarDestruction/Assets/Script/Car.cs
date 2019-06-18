@@ -28,8 +28,6 @@ public class Car : MonoBehaviour
     {
         cameraPlayer.SetActive(true);
         cameraCar.SetActive(false);
-
-
     }
 
     // Update is called once per frame
