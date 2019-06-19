@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using System;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -11,6 +10,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private GameObject spawnPoints;
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI txtTimer;
+
+    private string PathScore = "";
 
     private float timeLeft;
 
@@ -35,10 +36,6 @@ public class Controller : MonoBehaviour
         if(Car.inCar)
         {
             Timer();
-            if (timeLeft < 0)
-            {
-                GameOver();
-            }
         }
     }
 
@@ -46,11 +43,17 @@ public class Controller : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         txtTimer.text = Convert.ToString((int)timeLeft);
+
+        if((int)timeLeft <= 0)
+        {
+            GameOver();
+        }
     }
 
     void GameOver()
     {
-
+        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("EndGame");
+        
     }
-
 }

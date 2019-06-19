@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerWalk : MonoBehaviour
 {
@@ -12,6 +10,13 @@ public class PlayerWalk : MonoBehaviour
     private float _Z = 0;
     private float _Y = 0;
 
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +25,8 @@ public class PlayerWalk : MonoBehaviour
         _Z = Input.GetAxisRaw("Vertical");
 
         Vector3 veloc = new Vector3(_Y, 0 , _Z);
+
+        anim.SetFloat("Speed", _Z);
 
         transform.Translate(veloc * speed * Time.deltaTime);
         
