@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
 using TMPro;
-using System;
+using UnityEngine;
 public class Wheels : MonoBehaviour
 {
     public WheelCollider fl;
@@ -11,7 +8,6 @@ public class Wheels : MonoBehaviour
     public WheelCollider bl;
     public WheelCollider br;
 
-    
     public TextMeshProUGUI txtSpeed;
     public float torque;
     public static float speed;
@@ -23,7 +19,7 @@ public class Wheels : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -1f, 0);
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -0.8f, 0);
     }
 
     // Update is called once per frame
@@ -61,8 +57,14 @@ public class Wheels : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
+            fl.motorTorque = 0;
+            fr.motorTorque = 0;
+            bl.motorTorque = 0;
+            br.motorTorque = 0;
             bl.brakeTorque = Mathf.Infinity;
             br.brakeTorque = Mathf.Infinity;
+            fl.brakeTorque = Mathf.Infinity;
+            fr.brakeTorque = Mathf.Infinity;
         }
 
         //direction

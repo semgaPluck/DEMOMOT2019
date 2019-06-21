@@ -20,6 +20,8 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Cursor.visible = false;
+
         for (int i = 0; i < spawnPoints.transform.childCount;i++)
         {
             if(rnd.Next(0,10) != 0)
@@ -28,7 +30,7 @@ public class Controller : MonoBehaviour
             }
         }
 
-        timeLeft = 60;
+        timeLeft = 999;
     }
 
     void Update()

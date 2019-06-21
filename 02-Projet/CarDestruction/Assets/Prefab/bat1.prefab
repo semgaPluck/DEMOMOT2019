@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3232787135782722675}
   - component: {fileID: 3240414597667249955}
   - component: {fileID: 7627787322891385512}
-  - component: {fileID: 3635876760677076033}
   - component: {fileID: 4953071200337578175}
+  - component: {fileID: 7326098623453102889}
   m_Layer: 0
   m_Name: bat1
   m_TagString: Untagged
@@ -88,25 +88,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3219622877319670333}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4aeaccde462f5764a84b5166c86b58fe, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.7078958, y: 2.768087, z: 2.395314}
   m_Center: {x: -0.010869324, y: 1.3811753, z: -0.023429632}
---- !u!135 &3635876760677076033
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3219622877319670333}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.7176402
-  m_Center: {x: 0.080200195, y: 1.138794, z: -0.06919074}
 --- !u!114 &4953071200337578175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +108,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colSpeed: 5
   batValue: 25
+--- !u!135 &7326098623453102889
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219622877319670333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.3127441
+  m_Center: {x: -0.0075683594, y: 1.381175, z: -0.03892851}

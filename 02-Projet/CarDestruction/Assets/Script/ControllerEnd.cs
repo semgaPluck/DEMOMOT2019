@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class ControllerEnd : MonoBehaviour
 {
+
+    void Start()
+    {
+        Cursor.visible = true;
+    }
    
     public void Restart()
     {

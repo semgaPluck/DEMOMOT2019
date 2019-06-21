@@ -42,13 +42,6 @@ public class Car : MonoBehaviour
             EnterInCar();
         }
 
-        if(Input.GetKey(KeyCode.R))
-        {
-           
-            transform.Translate(0, 3720.38f, 0);
-
-        }
-
         txtScore.text = Convert.ToString(score);
     }
 
