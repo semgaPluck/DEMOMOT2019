@@ -7,7 +7,7 @@
 # Table: Players
 #------------------------------------------------------------
 
-CREATE TABLE Player(
+CREATE TABLE t_player(
         idPlayer    Int  Auto_increment  NOT NULL ,
         plaScore    Int NOT NULL ,
         PlaName     Varchar (20) NOT NULL ,
