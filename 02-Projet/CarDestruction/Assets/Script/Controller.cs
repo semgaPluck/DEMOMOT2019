@@ -20,6 +20,8 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+        
         Cursor.visible = false;
 
         for (int i = 0; i < spawnPoints.transform.childCount;i++)
@@ -30,13 +32,14 @@ public class Controller : MonoBehaviour
             }
         }
 
-        timeLeft = 999;
+        timeLeft = 60;
     }
 
     void Update()
     {
         if(Car.inCar)
         {
+           
             Timer();
         }
     }
